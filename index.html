@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <style>
+        body{
+  margin: 0;
+  padding: 0;
+  background: grey;
+}
+
+.eye {
+    width: 240px;
+    height: 120px;
+    background: #fff;
+    display: inline-block;
+    margin: 40px;
+    border-radius: 80%;
+    position: relative;
+    overflow: hidden;
+    -webkit-animation: blink 5s infinite;
+}
+
+
+/**@-webkit-keyframes blink {
+    0%, 100% {
+        transform: scale(1, .05);
+    }
+    5%,
+    95% {
+        transform: scale(1, 1);
+    }
+}
+}**/
+
+.ball{
+  width: 40px;
+  height: 40px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  border: 15px solid #333;
+
+}
+
+    </style>
+    <title></title>
+  </head>
+  <body>
+
+    <div class="eye">
+      <div class="ball"></div>
+    </div>
+  
+      <div class="eye">
+      <div class="ball"></div>
+    </div>
+  
+  <div class="shape">
+    <div class="iris"></div>
+  </div>
+
+<script>
+      var balls = document.getElementsByClassName("ball");
+  document.onmousemove = function(){
+    var x = event.clientX * 100 / window.innerWidth + "%";
+    var y = event.clientY * 100 / window.innerHeight + "%";
+
+
+    for(var i=0;i<2;i++){
+      balls[i].style.left = x;
+      balls[i].style.top = y;
+      balls[i].style.transform = "translate(-"+x+",-"+y+")";
+    }
+  }
+</script>
+  </body>
+</html>
