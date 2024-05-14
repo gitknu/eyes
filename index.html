@@ -10,9 +10,9 @@
       background: grey;
     }
 
-    .eye {
-      width: 240px;
-      height: 120px;
+.eye {
+      width: 20vw; 
+      height: calc(10vw + 80px);
       background: #fff;
       display: inline-block;
       margin: 40px;
@@ -22,17 +22,17 @@
       -webkit-animation: blink 5s infinite;
     }
 
-.ball {
-  width: 40px;
-  height: 40px;
-  background: #000;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scaleX(-1); /* Added scaleX(-1) for mirroring */
-  border-radius: 50%;
-  border: 15px solid #333;
-}
+    .ball {
+      width: 4vw; 
+      height: 4vw;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scaleX(-1); 
+      border-radius: 50%;
+      border: 1.5vw solid #333; 
+    }
 
     
     #container {
@@ -42,6 +42,7 @@
 
     #video {
       width: 100%;
+       transform: scaleX(-1);
     }
 
     #canvas {
@@ -85,12 +86,11 @@
           context.strokeStyle = "#FF0000";
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
 
-          // Move the eyeballs based on the center of the detected face
           var faceCenterX = rect.x + rect.width / 2;
-          var faceCenterY = rect.y + rect.height / 2;
-          var containerRect = document.getElementById("container").getBoundingClientRect();
-          var offsetX = (faceCenterX - containerRect.left) / containerRect.width * 100 + "%";
-          var offsetY = (faceCenterY - containerRect.top) / containerRect.height * 100 + "%";
+var faceCenterY = rect.y + rect.height / 2;
+var containerRect = document.getElementById("container").getBoundingClientRect();
+var offsetX = (containerRect.right - faceCenterX) / containerRect.width * 100 + "%"; 
+var offsetY = (faceCenterY - containerRect.top) / containerRect.height * 100 + "%";
 
           for (var i = 0; i < 2; i++) {
             balls[i].style.left = offsetX;
