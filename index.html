@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Face Tracking</title>
   <style>
     body {
       margin: 0;
@@ -23,17 +22,18 @@
       -webkit-animation: blink 5s infinite;
     }
 
-    .ball {
-      width: 40px;
-      height: 40px;
-      background: #000;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 15px solid #333;
-    }
+.ball {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleX(-1); /* Added scaleX(-1) for mirroring */
+  border-radius: 50%;
+  border: 15px solid #333;
+}
+
     
     #container {
       position: relative;
